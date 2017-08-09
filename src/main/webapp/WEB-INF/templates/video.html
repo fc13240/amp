@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html data-use-rem="750">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title th:text="${page.title}">视频</title>
+    <style type="text/css">
+        a,abbr,address,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}html{font-family:PingFangSC-Light,Microsoft YaHei,Arial,Helvetica,sans-serif;font-size:10px;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{background:#f2f2f2}table{border-collapse:collapse;border-spacing:0}address,caption,cite,code,dfn,em,i,strong,th,var{font-weight:400;font-style:normal}ol,ul{list-style:none}a{text-decoration:none}a:focus,a:hover{outline:none}caption,th{text-align:left;font-weight:400}h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%}.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}.videoDetail{width:100%}.video-box{position:relative;background:#fff}.video-box img{width:100%}.video_header{background:#fff;border-bottom:1px solid #ddd}.video_header h2{font-size:.42rem;color:#333;margin-top:.3rem;margin-bottom:.2rem}.share_tips{overflow:hidden}.share_tips li{float:left;font-size:.18rem;margin-right:.18rem;color:#ffa229}.share_tips li:first-child{color:#ff3a64}.share_tips li:last-child{color:#a07aff}.video_content{padding:0 .22rem;padding-bottom:.4rem}.video_content p{font-size:.26rem;color:#666;margin-top:.24rem;line-height:1.67}.video-box .video-play{position:absolute;top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);width:1.4rem;height:1.4rem;border-radius:.08rem;color:#fff;text-align:center}.video-box .video-play .iconmoon{display:block;font-size:.4rem;margin:.26rem auto .2rem}.video-box .video-play strong{font-weight:400;font-size:.24rem}.bottom_tools{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center;height:1rem;border-top:1px solid #e2e2e2;overflow:hidden}.bottom_tools .toolsItem{display:block;-webkit-box-flex:1;font-size:.32rem;-ms-flex:1;flex:1;line-height:1rem;text-decoration:none}.bottom_tools .toolsItem:last-child{background:#ec6c6e;color:#fff}.detail_footer{width:100%}.detail_footer p{font-size:.26rem;color:#999;height:1rem;line-height:1rem;text-align:center}.video_list{margin:.18rem 0;margin-bottom:0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;background:#fff;padding:0 .22rem}.video_list ul li{margin-top:.5rem;padding-bottom:.5rem;border-bottom:1px solid #ddd;overflow:hidden}.video_list ul li:last-child{border-bottom:0 none}.video_list ul li .shop_item_right{float:right;width:4.25rem}.video_list ul li .shop_item_right h2{font-size:.42rem;color:#333;float:left}.video_list ul li .shop_item_right p{width: 100%;font-size:.26rem;color:#999;margin-top:.43rem;margin-bottom:.2rem;float:left}.video_list ul li .shop_item_right span{font-size:.4rem;color:#ea5c5e;float:left}.video_list ul li img{width:2.4rem;float:left;}.video_templet_shop{padding-top:.5rem;padding-bottom:.6rem;background:#fff;margin:.18rem 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd}.video_templet_shop .video_inner{width:5.2rem;margin:0 auto;}.video_templet_shop .video_inner .goShop{font-size:.28rem;color:#ea5c5e;border:1px solid #ea5c5e;padding:.16rem .34rem;border-radius:.6rem;display:block;margin:0 auto;width:1.8rem;text-align:center;margin-top:.4rem}.video_templet_shop .video_inner h2{font-size:.36rem;color:#333;text-align:center;margin-top:.3rem;margin-bottom:.26rem}.video_templet_shop .video_inner p{font-size:.26rem;color:#333;line-height:1.67}.video_templet_shop .video_inner img{width:1.3rem;height:1.3rem;margin:0 auto;display:block}
+    </style>
+</head>
+<body>
+<script>
+    (function(win){var doc=win.document,html=doc.documentElement,option=html.getAttribute("data-use-rem");if(option===null){return}var baseWidth=parseInt(option).toString()==="NaN"?640:parseInt(option);var grids=baseWidth/100;var clientWidth=html.clientWidth||320;var fontsize=html.style.fontSize=clientWidth/grids+"px";fontsize=parseFloat(fontsize);var maxFontsize=Math.ceil(fontsize);var minFontsize=Math.floor(fontsize);var testDom=document.createElement("div");var testDomWidth=0;var adjustRatio=0;testDom.style.cssText="height:0;width:1rem;";doc.body.appendChild(testDom);var calcTestDom=function(){testDomWidth=testDom.offsetWidth;if(testDomWidth<minFontsize||testDomWidth>maxFontsize){adjustRatio=clientWidth/grids/testDomWidth;var reCalcRem=clientWidth*adjustRatio/grids;html.style.fontSize=reCalcRem+"px"}else{doc.body.removeChild(testDom)}};setTimeout(calcTestDom,20);var reCalc=function(){var newCW=html.clientWidth;if(newCW===clientWidth){return}clientWidth=newCW;html.style.fontSize=newCW*(adjustRatio?adjustRatio:1)/grids+"px"};if(!doc.addEventListener){return}var resizeEvt="orientationchange"in win?"orientationchange":"resize";win.addEventListener(resizeEvt,reCalc,false);doc.addEventListener("DOMContentLoaded",reCalc,false)})(window);
+</script>
+<section class="videoDetail">
+    <div class="video_header">
+        <div class="video-box videoContainer" id="video_" th:data-videoid="${page.videoId}">
+            <a href="javascript:void(0);" class="video-play">
+                <img src="https://i2.meixincdn.com/v1/img/T1WCCvB_xT1R4cSCrK.png">
+            </a>
+            <img th:src="${page.image == '' ? 'http://css.meixincdn.com/m/h5/dist/images/default_product.png' : page.image}" alt="图片" data-src="' .$coverImage. '">
+        </div>
+        <div class="video_content">
+            <h2 th:text="${page.title}"></h2>
+            <ul class="share_tips">
+                <li>分享赚0.03元</li>
+                <li>调研赚0.03元</li>
+                <li>视频赚0.03元</li>
+            </ul>
+            <p th:text="${page.description}"></p>
+        </div>
+    </div>
+    <div class="video_templet_shop" th:if="${page.promotionType == 2}">
+        <div class="video_inner" th:each="item : ${items}">
+            <img th:src="${item.image}" alt="">
+            <h2 th:text="${item.name}"></h2>
+            <p th:text="${item.description}"></p>
+            <a href="javascript:void(0);" class="goShop">进入店铺</a>
+        </div>
+    </div>
+    <div class="video_templet_list" th:if="${page.promotionType == 1}">
+        <div class="video_list">
+            <ul>
+                <li th:each="item : ${items}">
+                    <img th:src="${item.image}" alt="">
+                    <div class="shop_item_right">
+                        <h2 th:text="${item.name}"></h2>
+                        <p th:text="${item.description}"></p>
+                        <span>￥ [[${#numbers.formatDecimal((item.price == null ? 0 : item.price),1,2)}]]</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="detail_footer">
+            <p>价格以商品详情页为准</p>
+        </div>
+    </div>
+    <div class="bottom_tools">
+        <div class="toolsItem">赞</div>
+        <div class="toolsItem">问卷</div>
+        <div class="toolsItem">分享</div>
+    </div>
+</section>
+
+</body>
+
+</html>

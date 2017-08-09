@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html data-use-rem="750">
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1,maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title th:text="${page.title}">好店</title>
+	<style type="text/css">
+		a,abbr,address,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}html{font-family:PingFangSC-Light,Microsoft YaHei,Arial,Helvetica,sans-serif;font-size:10px;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{background:#f2f2f2}table{border-collapse:collapse;border-spacing:0}address,caption,cite,code,dfn,em,i,strong,th,var{font-weight:400;font-style:normal}ol,ul{list-style:none}a{text-decoration:none}a:focus,a:hover{outline:none}caption,th{text-align:left;font-weight:400}h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%}.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}.shopDetail{width:100%}.shopDetail .shop_info{padding:0 1.1rem;font-size:.28rem;color:#666;line-height:.42rem;padding-bottom:.5rem;background:#fff}.shopDetail .shop_info p{padding:0!important}.shopDetail .shop_content{background:#fff;padding:.4rem 0}.shopDetail .shop_content img{width:100%;display:block}.shopDetail .shop_content h2{font-size:.42rem;color:#333;margin-top:.4rem;margin-bottom:.26rem;text-align:center}.shopDetail .shop_content a.info_btn{display:block;width:3rem;height:.6rem;font-size:.28rem;color:#ea5c5e;border:1px solid #ea5c5e;border-radius:.3rem;text-align:center;line-height:.6rem;margin:0 auto;margin-bottom:.26rem}.shopDetail .shop_content p{font-size:.28rem;color:#666;line-height:.42rem;padding:0 .22rem;margin-bottom:.5rem}.shopDetail .detail_footer{width:100%}.shopDetail .detail_footer p{font-size:.26rem;color:#999;height:1rem;line-height:1rem;text-align:center}.shopDetail .shop_header{width:100%;height:4.54rem;background:#fff;text-align:center}.shopDetail .shop_header .shop_inner{padding-top:.2rem;margin:0 auto;height:4.54rem}.shopDetail .shop_header .shop_inner .share_tips{overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.shopDetail .shop_header .shop_inner .share_tips div{float:left;font-size:.18rem;color:#ffa229}.shopDetail .shop_header .shop_inner .share_tips div:first-child{color:#ff3a64;margin-right:.18rem}.shopDetail .shop_header .shop_inner .shop_icon{width:1.3rem;height:1.3rem;display:block;margin:0 auto;margin-bottom:.46rem}.shopDetail .shop_header .shop_inner h2{font-size:.36rem;color:#333;margin-bottom:.18rem}.shopDetail .shop_header .shop_inner p{font-size:.24rem;color:#666;margin-top:.18rem}.shopDetail .shop_header .shop_inner a{width:2rem;display:block;height:.6rem;font-size:.28rem;color:#fff;background:#ea5c5e;text-align:center;line-height:.6rem;border-radius:.3rem;margin:0 auto;margin-top:.3rem}.shopDetail .bottom_tools{background-color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;text-align:center;height:1rem;border-top:1px solid #e2e2e2;overflow:hidden}.shopDetail .bottom_tools .toolsItem{display:block;-webkit-box-flex:1;-ms-flex:1;font-size:.32rem;flex:1;line-height:1rem;text-decoration:none}.shopDetail .bottom_tools .toolsItem:last-child{background:#ec6c6e;color:#fff}
+	</style>
+
+</head>
+<body>
+<script>
+	(function(win){var doc=win.document,html=doc.documentElement,option=html.getAttribute("data-use-rem");if(option===null){return}var baseWidth=parseInt(option).toString()==="NaN"?640:parseInt(option);var grids=baseWidth/100;var clientWidth=html.clientWidth||320;var fontsize=html.style.fontSize=clientWidth/grids+"px";fontsize=parseFloat(fontsize);var maxFontsize=Math.ceil(fontsize);var minFontsize=Math.floor(fontsize);var testDom=document.createElement("div");var testDomWidth=0;var adjustRatio=0;testDom.style.cssText="height:0;width:1rem;";doc.body.appendChild(testDom);var calcTestDom=function(){testDomWidth=testDom.offsetWidth;if(testDomWidth<minFontsize||testDomWidth>maxFontsize){adjustRatio=clientWidth/grids/testDomWidth;var reCalcRem=clientWidth*adjustRatio/grids;html.style.fontSize=reCalcRem+"px"}else{doc.body.removeChild(testDom)}};setTimeout(calcTestDom,20);var reCalc=function(){var newCW=html.clientWidth;if(newCW===clientWidth){return}clientWidth=newCW;html.style.fontSize=newCW*(adjustRatio?adjustRatio:1)/grids+"px"};if(!doc.addEventListener){return}var resizeEvt="orientationchange"in win?"orientationchange":"resize";win.addEventListener(resizeEvt,reCalc,false);doc.addEventListener("DOMContentLoaded",reCalc,false)})(window);
+</script>
+<section class="shopDetail">
+	<div class="shop_header">
+		<div class="shop_inner">
+			<img class="shop_icon" th:src="${page.image}" alt="">
+			<h2 th:text="${page.title}"></h2>
+			<div class="share_tips">
+				<div>分享赚0.03元</div>
+				<div>调研赚0.03元</div>
+			</div>
+			<p>关注数：3012</p>
+			<a href="javascript:void(0);">进入店铺</a>
+		</div>
+	</div>
+	<div class="shop_content">
+		<div class="shop_info" th:if="${!#strings.isEmpty(page.description)}">
+			<p th:text="${page.description}"></p>
+		</div>
+		<div th:each="item : ${items}">
+			<img th:src="${item.image}" alt="">
+			<h2 th:text="${item.name}"></h2>
+			<a href="javascript:void(0);" class="info_btn">￥ [[${#numbers.formatDecimal((item.price == null ? 0 : item.price),1,2)}]] / 查看详情</a>
+			<p th:text="${item.description}"></p>
+		</div>
+
+	</div>
+	<div class="detail_footer">
+		<p>价格以商品详情页为准</p>
+	</div>
+	<div class="bottom_tools">
+		<div class="toolsItem">赞</div>
+		<div class="toolsItem">问卷</div>
+		<div class="toolsItem">分享</div>
+	</div>
+</section>
+
+</body>
+
+</html>

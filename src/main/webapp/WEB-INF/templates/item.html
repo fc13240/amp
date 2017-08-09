@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html data-use-rem="750">
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimum-scale=1,maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title th:text="${page.title}">探索</title>
+	<style type="text/css">
+		a,abbr,address,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,img,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,ul,var{margin:0;padding:0;border:0;outline:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline}html{font-family:"sans-serif",Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Tahoma,Helvetica;font-size:10px;background:#fff;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{background:#f2f2f2}table{border-collapse:collapse;border-spacing:0}address,caption,cite,code,dfn,em,i,strong,th,var{font-weight:400;font-style:normal}ol,ul{list-style:none}a{text-decoration:none}a:focus,a:hover{outline:none}caption,th{text-align:left;font-weight:400}h1,h2,h3,h4,h5,h6{font-weight:400;font-size:100%}.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}.inventoryDetail,.inventoryDetail .detail_footer{width:100%}.inventoryDetail .detail_footer p{font-size:.26rem;color:#999;height:1rem;line-height:1rem;text-align:center}.inventoryDetail .header_img{width:100%;height:auto;background:#fff}.inventoryDetail .header_box{background:#fff}.inventoryDetail .detail_content{width:100%;overflow:hidden;border-bottom:1px solid #ddd}.inventoryDetail .detail_content .content_header{padding:.3rem .22rem;padding-bottom:.4rem;background:#fff;border-bottom:1px solid #ddd}.inventoryDetail .detail_content .content_header .p_box{font-size:.26rem;color:#333;line-height:.4rem}.inventoryDetail .detail_content .content_main{margin-top:.18rem;background:#fff;padding:0 .22rem;overflow:hidden;border-top:1px solid #ddd}.inventoryDetail .detail_content .content_main ul li{width:50%;float:left;padding-bottom:.56rem;border-top:1px solid #f0f0f0;overflow:hidden;box-sizing:border-box;border-right:1px solid #f0f0f0}.inventoryDetail .detail_content .content_main ul li:first-child,.inventoryDetail .detail_content .content_main ul li:nth-child(2){border-top:0 none}.inventoryDetail .detail_content .content_main ul li img{width:3.36rem;height:3.36rem}.inventoryDetail .detail_content .content_main ul li h2{font-size:.26rem;color:#666;margin-bottom:.18rem}.inventoryDetail .detail_content .content_main ul li p{font-size:.26rem;color:#ea5c5e;font-weight:700}.inventoryDetail .detail_content .content_main ul li:nth-child(2n){float:right;text-align:right;border-right:0 none}.inventoryDetail .detail_content .content_main ul li:nth-child(2n) h2,.inventoryDetail .detail_content .content_main ul li:nth-child(2n) p{text-align:left;padding-left:.15rem}.inventoryDetail .detail_content .share_tips{overflow:hidden;margin-top:.16rem;margin-bottom:.2rem}.inventoryDetail .detail_content .share_tips li{float:left;font-size:.18rem;color:#ffa229}.inventoryDetail .detail_content .share_tips li:first-child{color:#ff3a64;margin-right:.18rem}.inventoryDetail h2{font-size:.42rem;color:#333} .product-desc{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;margin-bottom: .18rem;height: .86rem;line-height: 1.5;font-size: .26rem;color: #1a1d26;-webkit-line-clamp: 2;text-overflow: ellipsis;}
+	</style>
+</head>
+<body>
+<div class="inventoryDetail">
+	<div class="header_box">
+		<img class="header_img" th:src="${page.image == '' ? 'http://css.meixincdn.com/m/h5/dist/images/default_product.png' : page.image}" alt="">
+	</div>
+	<div class="detail_content">
+		<div class="content_header">
+			<h2 th:text="${page.title}"></h2>
+			<ul class="share_tips">
+				<li>分享赚0.03元</li>
+				<li>调研赚0.03元</li>
+			</ul>
+			<p class="p_box" th:text="${page.description}"></p>
+		</div>
+		<div class="content_main">
+			<ul>
+				<li th:each="item : ${items}">
+					<img th:src="${item.image}" alt="">
+					<h2 class="product-desc" th:text="${item.description}"></h2>
+					<p>￥ <span>[[${#numbers.formatDecimal((item.price == null ? 0 : item.price),1,2)}]]</span></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="detail_footer">
+		<p>价格以商品详情页为准</p>
+	</div>
+</div>
+
+</body>
+<script>
+	(function(win){var doc=win.document,html=doc.documentElement,option=html.getAttribute("data-use-rem");if(option===null){return}var baseWidth=parseInt(option).toString()==="NaN"?640:parseInt(option);var grids=baseWidth/100;var clientWidth=html.clientWidth||320;var fontsize=html.style.fontSize=clientWidth/grids+"px";fontsize=parseFloat(fontsize);var maxFontsize=Math.ceil(fontsize);var minFontsize=Math.floor(fontsize);var testDom=document.createElement("div");var testDomWidth=0;var adjustRatio=0;testDom.style.cssText="height:0;width:1rem;";doc.body.appendChild(testDom);var calcTestDom=function(){testDomWidth=testDom.offsetWidth;if(testDomWidth<minFontsize||testDomWidth>maxFontsize){adjustRatio=clientWidth/grids/testDomWidth;var reCalcRem=clientWidth*adjustRatio/grids;html.style.fontSize=reCalcRem+"px"}else{doc.body.removeChild(testDom)}};setTimeout(calcTestDom,20);var reCalc=function(){var newCW=html.clientWidth;if(newCW===clientWidth){return}clientWidth=newCW;html.style.fontSize=newCW*(adjustRatio?adjustRatio:1)/grids+"px"};if(!doc.addEventListener){return}var resizeEvt="orientationchange"in win?"orientationchange":"resize";win.addEventListener(resizeEvt,reCalc,false);doc.addEventListener("DOMContentLoaded",reCalc,false)})(window);
+</script>
+</html>
+
+
